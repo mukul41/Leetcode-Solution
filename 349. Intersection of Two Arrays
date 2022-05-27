@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        set<int> ans;
+        vector<int> res;
+        int i,j;
+       
+        while(i<nums1.size() && j<nums2.size())
+        {
+                for(int i=0; i<nums1.size(); i++)
+                    {
+                         if(nums1[i]==nums2[j])
+                            {   
+                                ans.insert(nums1[i]);
+                                break;
+                            }
+                     }
+            j++;
+         }
+        
+    set<int>::iterator itr;
+      for (itr = ans.begin(); itr != ans.end(); itr++)
+        res.push_back(*itr); 
+      
+        return res;
+    }
+};
