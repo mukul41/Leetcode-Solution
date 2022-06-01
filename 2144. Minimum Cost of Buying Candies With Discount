@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minimumCost(vector<int>& cost) {
+         
+        sort(cost.begin(),cost.end());
+        int i,j,l=cost.size();
+        int sum1=0;
+        if(l==1)
+            return cost[0];
+        else if(l==2)
+            return cost[0]+cost[1];
+        for(i=l-1;i>=0;)
+        {
+            sum1+=cost[i];
+            --i;
+            if(i>=0)
+                sum1+=cost[i];
+            --i;
+            if(i>=0)
+                --i;
+        }
+        return sum1;
+    }
+};
